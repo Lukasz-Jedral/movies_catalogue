@@ -1,5 +1,5 @@
 import requests
-from random import sample
+import random
 
 def get_popular_movies():
     endpoint = "https://api.themoviedb.org/3/movie/popular"
@@ -17,3 +17,11 @@ def get_poster_url(poster_api_path, size="w342"):
 def get_movies(how_many):
     data = get_popular_movies()
     return data["results"][:how_many]
+
+def get_random_movies(how_many):
+    data = get_popular_movies()
+    return random.sample(data["results"], how_many)
+
+#data = get_popular_movies()
+#random_movies = random.sample(data["results"],8)
+#print(random_movies)
