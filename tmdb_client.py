@@ -4,6 +4,9 @@ import my_token
 
 
 def get_movies_list(list_type='popular'):
+    available_lists = ['now_playing', 'popular', 'top_rated', 'upcoming']
+    if not list_type in available_lists:
+        list_type = 'popular'
     endpoint = f"https://api.themoviedb.org/3/movie/{list_type}"
     api_token = my_token.get_my_token()
     headers = {
